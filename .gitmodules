@@ -1,0 +1,12 @@
+[submodule "amazobank-web-frontend"]
+	path = amazobank-web-frontend
+	url = git@github.com:JLJZ/amazobank-web-frontend.git
+[submodule "amazobank-crm-user-management"]
+	path = amazobank-crm-user-management
+	url = git@github.com:JLJZ/amazobank-crm-user-management.git
+[submodule "amazobank-client-account"]
+	path = amazobank-client-account
+	url = git@github.com:JLJZ/amazobank-client-account.git
+[submodule "amazobank-client-profile"]
+	path = amazobank-client-profile
+	url = git@github.com:JLJZ/amazobank-client-profile.git
