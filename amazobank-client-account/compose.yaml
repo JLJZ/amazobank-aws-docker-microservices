@@ -1,0 +1,34 @@
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: cs301
+      MYSQL_PASSWORD: cs301
+      MYSQL_DATABASE: account_db
+    healthcheck:
+      test: ["CMD", "mysql", "-u", "cs301", "-pcs301", "--execute", "SHOW DATABASES;"]
+      interval: 3s
+      retries: 5
+      timeout: 5s
+    restart: unless-stopped
+
+  account:
+    build:
+      dockerfile: Dockerfile
+    container_name: account
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: account_db
+      DB_USER: root
+      DB_PASSWORD: root
+    depends_on:
+      mysql:
+        condition: service_healthy

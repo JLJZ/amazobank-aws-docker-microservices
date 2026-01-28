@@ -1,0 +1,31 @@
+spring:
+  config.activate.on-profile: prod
+  datasource:
+    url: jdbc:aws-wrapper:mysql://crm-cluster.cluster-chjwviu5kjap.ap-southeast-1.rds.amazonaws.com:3306/amazobankdb
+    driver-class-name: software.amazon.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    username: ClientAccountRDSUser
+    hikari:
+      data-source-properties:
+        wrapperPlugins: iam
+        iamRegion: ap-southeast-1
+      max-lifetime: 1_260_000
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  sql:
+    init:
+      mode: always
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_W7C683l6w
+          jwk-set-uri: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_W7C683l6w/.well-known/jwks.json
+aws:
+  sqs:
+    queueUrl: "https://sqs.ap-southeast-1.amazonaws.com/163683790602/EmailNotificationQueue.fifo"
