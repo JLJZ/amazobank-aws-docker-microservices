@@ -26,6 +26,8 @@ A **CRM System** that enables banking staff to manage client data, accounts, and
 
 ## High-Level Architecture
 
+![architectural diagram](./res/architecture-diagram.png)
+
 - **Frontend**: Web-based UI served via CloudFront
 - **Backend**: Microservices + Serverless (ECS Fargate, AWS Lambda)
 - **Authentication**: Amazon Cognito (OAuth2 / OIDC)
