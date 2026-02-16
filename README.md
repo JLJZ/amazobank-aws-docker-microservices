@@ -1,5 +1,9 @@
 # Cloud-Native CRM System (AWS)
 
+> [!WARNING]
+> This repository is a collection of our group's private repository, and thus, CI/CD and infrastructure scripts will not work.
+> This repository serves only as a source code archive.
+
 ## Overview
 
 This repository showcases the **architecture, cloud design, and DevOps practices** behind a **cloud-native CRM system** built on AWS.
